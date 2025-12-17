@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farmer Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Sansation:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="far.css">
+
+<style>
+
+    .delete-btn {
+    margin-left: auto;
+    height: 45px;
+    padding: 0 20px;
+    background: #c0392b;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.delete-btn:hover {
+    background: #e74c3c;
+    transform: scale(1.05);
+}
+
+/* RIGHT SIDE PRODUCT DISPLAY */
+#productList {
+    position: absolute;
+    top: 7vh;
+    left: 48vw;
+    width: 45vw;
+    height: 83.3vh;
+    overflow-y: auto;
+
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 20px;
+}
+
+.product-card {
+    background: rgba(255,255,255,0.6);
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.product-card img {
+    width: 20vw;
+    height: 30vh;
+    border-radius: 12px;
+
+    object-fit: contain;      /* THIS is the key */
+    object-position: center;/* keeps subject centered */
+    display: block;
+}
+
+
+.product-details h4 {
+    margin: 0;
+    font-size: 3em;
+font-family: 'Sansation', sans-serif;
+ color: #faebc1;}
+
+.product-details p {
+    margin: 3px 0;
+    font-size: 1.2em;
+    font-weight: 700;
+      font-family: 'Poiret One', cursive;
+   color: #31482f;
+
+}
+</style>
+
+</head>
+<body>
+
+<header></header>
+
+<!-- LEFT SIDE ADD PRODUCT -->
+<div id="box">
+    <h2>Add New Product :</h2>
+
+    <h3>Product Name</h3>
+    <input id="pname" placeholder="eg. Onion">
+
+    <h3>Image URL</h3>
+    <input id="pimg" placeholder="eg. xyz.jpg">
+
+    <h3>Price per KG</h3>
+    <input id="pprice" type="number" placeholder="eg. 30">
+
+    <h3>Stock (KG)</h3>
+    <input id="pstock" type="number" placeholder="eg. 100">
+
+    <h3>Location</h3>
+    <input id="pplace" placeholder="eg. bangalore">
+
+    <button onclick="addProduct()">Add</button>
+</div>
+
+<!-- RIGHT SIDE DISPLAY -->
+<div id="productList">
+    <h2 style="color:#faebc1; margin-bottom:15px;">Listed Products :</h2>
+</div>
+
+<script>
+function loadProducts() {
+    let farmerProducts = JSON.parse(localStorage.getItem("farmerProducts")) || [];
+    let container = document.getElementById("productList");
+
+    container.innerHTML = `<h2 style="color:#faebc1; margin-bottom:15px;">Listed Products :</h2>`;
+
+    farmerProducts.forEach((product, index) => {
+    container.innerHTML += `
+        <div class="product-card">
+            <img src="${product.img}" alt="Product Image">
+
+            <div class="product-details">
+                <h4>${product.name}</h4>
+                <p><b>Price:</b> ₹${product.price}/kg</p>
+                <p><b>Stock:</b> ${product.stock} kg</p>
+                <p><b>Location:</b> ${product.place}</p>
+            </div>
+
+            <button class="delete-btn" onclick="deleteProduct(${index})">
+                Remove
+            </button>
+        </div>
+    `;
+});
+
+}
+
+function addProduct() {
+    let name = document.getElementById("pname").value;
+    let img = document.getElementById("pimg").value;
+    let price = document.getElementById("pprice").value;
+    let stock = document.getElementById("pstock").value;
+    let place = document.getElementById("pplace").value;
+
+    if (!name || !img || !price || !stock || !place) {
+        alert("Fill all fields");
+        return;
+    }
+
+    let farmerProducts = JSON.parse(localStorage.getItem("farmerProducts")) || [];
+
+    farmerProducts.push({
+        name,
+        img,
+        price: Number(price),
+        stock: Number(stock),
+        place
+    });
+
+    localStorage.setItem("farmerProducts", JSON.stringify(farmerProducts));
+
+    alert(name + " added successfully!");
+
+    loadProducts(); // refresh list without reloading
+}
+function deleteProduct(index) {
+    let farmerProducts = JSON.parse(localStorage.getItem("farmerProducts")) || [];
+
+    farmerProducts.splice(index, 1);
+
+    localStorage.setItem("farmerProducts", JSON.stringify(farmerProducts));
+
+    loadProducts();
+}
+
+
+window.onload = loadProducts;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,219 @@
+
+        body {
+            background-image: url("PHOTOS/mainbackground.jpeg");
+            font-family: "Poiret One", sans-serif;
+        }
+
+/* NAVBAR */
+.navbar{
+  position: absolute;
+  width: 100vw;
+  height: 12vh;
+  
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom:0.5px solid #faebc166;
+
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* right LINKS */
+.nav-left{
+  display: flex;
+ 
+  margin-left:3vw ;
+  
+}
+
+.nav-link{
+  position: relative;
+  text-decoration: none;
+  color: #faebc1;
+  font-size: 1.4rem;
+  font-weight: 600;
+  
+  margin-left: 6vw;
+ 
+}
+
+/* underline animation */
+.nav-link::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: #faebc1;
+  transition: width 0.4s ease;
+ 
+}
+
+.nav-link:hover::after{
+  width: 100%;
+}
+.nav-right{
+    gap: 30px;
+    
+    margin-right: 5vw;
+}
+
+/* RIGHT LOGO */
+.logo-text{
+  color: #faebc1;
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: 'Sansation', sans-serif;
+  
+}
+.nav-logo{
+  position: relative;
+  cursor: pointer;
+}
+
+/* underline effect */
+.nav-logo::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: #faebc1;
+  transition: width 0.4s ease;
+}
+
+.nav-logo:hover::after{
+  width: 100%;
+}
+
+
+
+
+
+
+        #pro11{
+            color: #EBD9D1;
+         font-family: "Poiret One", sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-style: normal;
+        }
+
+        .product-container {
+              background: rgba(255, 255, 255, 0.3); /* light transparent layer */
+    border-radius: 20px;
+    backdrop-filter: blur(10px);           /* THIS is the glass effect */
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    width: 60vw;
+    height: 50vh;
+    padding: 25px;
+    position: absolute;
+    top: 23vh;
+    left: 20vw;
+    display: flex;
+            gap:40px;
+            align-items: center;
+        }
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+#suc{
+  display: none;
+  margin-top: 10px;
+  color: green;
+  font-size: 2rem;
+  font-weight: bold;
+ 
+}
+
+        .product-image-big {
+            width: 45%;
+            height: 350px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            
+        }
+
+        .product-info h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #faebc1;
+            font-family: 'Sansation', sans-serif;
+        }
+
+        .product-info p {
+            font-size: 1.3rem;
+            margin: 10px 0;
+            font-weight: 600;
+        }
+
+        #addCartBtn {
+            margin-top: 15px;
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            background-color: #597956;
+            color: #faebc1;
+            font-size: 1.5rem;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        #addCartBtn:hover {
+            background-color: #496746;
+        }
+        .qty-box {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 1.8rem;
+}
+
+.qty-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: #597956;
+    color: white;
+    border-radius: 10px;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.qty-btn:hover {
+    background-color: #465f44;
+}
+
+#qtyValue {
+    font-weight: bold;
+    min-width: 30px;
+    text-align: center;
+}
+
+

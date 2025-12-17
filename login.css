@@ -1,0 +1,199 @@
+/* 
+font-family: 'Sansation', sans-serif;
+  font-family: 'Poiret One', cursive;
+   */
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-size: cover;
+  font-family: 'Sansation', sans-serif;
+background-image: url(PHOTOS/mainbackground.jpeg);
+  color: #FFFD8F;
+  min-height: 100vh;
+}
+
+#man{
+  width: 90vw;
+  height: 80vh;
+  
+  position: absolute;
+  top: 10vh;
+  left: 5vw;
+  background: rgba(255, 255, 255, 0.15); /* light transparent layer */
+    border-radius: 20px;
+    backdrop-filter: blur(10px);           /* THIS is the glass effect */
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+
+#logtext {
+  width: 37vw;
+  height: 10vh;
+  font-size: 4.3em;
+  font-weight: 700;
+  color: #faebc1;
+  position: absolute;
+  top: 27vh;
+  left: 3vw;
+  cursor: pointer;
+  position: relative;
+}
+
+#logtext::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px; /* little gap under text */
+  width: 0%;
+  height: 3px; /* underline thickness */
+  background-color: #faebc1;
+  transition: width 0.4s ease;
+}
+
+#logtext:hover::after {
+  width: 100%;
+}
+
+
+#bg2{
+  height: 30vh;
+  width: 15vw;
+  position: absolute;
+  bottom: 0;
+  border-radius:1rem;
+  left: 0;
+  background-image: url("PHOTOS/ca.png");
+  background-size: cover;
+}
+#bg1{
+   height: 20vh;
+  width: 8vw;
+  position: absolute;
+  top: 0;
+    border-radius:1rem;
+
+  right: 0;
+  background-image: url("PHOTOS/rara.png");
+  background-size: cover;
+}
+
+
+#des{
+  width: 42vw;
+  position: absolute;
+  top: 40vh;
+  left: 3.2vw;
+  font-size: 1.5em;
+  line-height: 4vh;
+  color: #faebc1;
+    font-family: 'Poiret One', cursive;
+    font-weight: 500;
+
+}
+
+
+
+
+
+
+
+.login-section {
+ top: 6vh;
+ right: 3vw;
+  text-align: center;
+  
+  height: 60vh;
+  width: 40vw;
+  border-radius: 16px;
+  position: absolute;
+
+}
+
+.login-section h1 {
+    
+
+  
+  color: #faebc1;
+  margin-bottom: 5vh;
+  font-size: 3em;
+  font-weight: 600;
+  margin: 5vh;
+}
+
+/* Cards */
+.login-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.login-card {
+     background: rgba(255, 255, 255, 0.4); /* light transparent layer */
+    border-radius: 20px;
+    backdrop-filter: blur(10px);           /* THIS is the glass effect */
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+  width: 280px;
+  padding: 25px 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+.login-card h2 {
+  font-family: 'Poiret One', cursive;
+  color: #597956;
+  margin-bottom: 20px;
+}
+
+.login-card label {
+  display: block;
+  text-align: left;
+  font-size: 0.9em;
+  margin-bottom: 6px;
+  color: #3F4A2C;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #C9C5B8;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.login-card input:focus {
+  border: 1px solid #597956;
+}
+
+.login-card button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ffd256;
+  color: #3F4A2C;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-card button:hover {
+  background-color: #ffbb00;
+}

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh from Farm to Home</title>
+    <link rel="stylesheet" href="home.css">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <div class="logo">Khet Se Ghar Tak</div>
+    </div>
+    <div class="nav-right">
+        <div class="search-box">
+    <input id="searchInput" placeholder="Search product" />
+    <button id="searchBtn"><i class="fa fa-search"></i></button>
+  </div>
+      <a href="display.html" class="nav-link">Products</a>
+      <a href="cart.html" class="nav-link" style="margin-right: 3vw;">Cart</a>
+      
+    </div>
+  </nav>
+
+
+
+
+    <div id="hero">
+      <div id="img1"></div>
+        <div id="img2"></div>
+        <div id="img3"></div>
+        <div id="img4"></div>
+        <div id="img5"></div>
+        <div id="img6"></div>
+         <div id="img7"></div>
+         
+
+
+
+      <div id="overlay">
+        
+      <h1 id="he"> Fresh from Farm to Home</h1>
+      <p id="de">Delivering farm-fresh produce directly to your doorstep.</p>
+      
+      </div>
+     
+      
+    </div>
+
+
+
+
+<div id="boxbox">
+  <h2 id="tr">Best Selling Items:</h2>
+    <div class="products">
+      
+
+    <div class="product-grid">
+      <!-- VEGETABLES -->
+      <div class="product-card" onclick="openProduct('Tomato', 'PHOTOS/tomato.png', 30, 40, 'Bangalore')">
+        
+        <div class="product-image" style="background-image: url(PHOTOS/tomato.png);"></div>
+        <h3>Tomato</h3>
+        <p>₹30/kg</p>
+        <p>From: Bangalore</p>
+      </div>
+
+      <div class="product-card" onclick="openProduct('Potato', 'PHOTOS/potato.PNG', 25, 60, 'Mysuru')">
+        <div class="product-image" style="background-image: url(PHOTOS/potato.PNG);"></div>
+        <h3>Potato</h3>
+        <p>₹25/kg</p>
+        <p>From: Mysuru</p>
+      </div>
+
+      <div class="product-card" onclick="openProduct('Onion', 'PHOTOS/onion.PNG',35,50, 'Hubli')">
+      
+        <div class="product-image" style="background-image: url(PHOTOS/onion.PNG);"></div>
+        <h3>Onion</h3>
+        <p>₹35/kg</p>
+        <p>From: Hubli</p>
+      </div>
+
+      <!-- FRUITS -->
+      <div class="product-card" onclick="openProduct('Mango', 'PHOTOS/mango.PNG', 80,30, 'Ramanagara')">
+        <div class="product-image" style="background-image: url(PHOTOS/mango.PNG);"></div>
+        <h3>Mango</h3>
+        <p>₹80/kg</p>
+        <p>From: Ramanagara</p>
+      </div>
+
+      <div class="product-card" onclick="openProduct('Apple', 'PHOTOS/apple.PNG', 120, 25, 'Bangalore')">
+        <div class="product-image" style="background-image: url(PHOTOS/apple.PNG);"></div>
+        <h3>Apple</h3>
+        <p>₹120/kg</p>
+        <p>From: Bangalore</p>
+      </div>
+
+      <div class="product-card" onclick="openProduct('Banana', 'PHOTOS/banana.png', 40, 70, 'Chikkaballapur')">
+        <div class="product-image" style="background-image: url(PHOTOS/banana.png);"></div>
+        <h3>Banana</h3>
+        <p>₹40/kg</p>
+        <p>From: Chikkaballapur</p>
+      </div>
+
+      <!-- GRAINS -->
+      <div class="product-card" onclick="openProduct('Rice', 'PHOTOS/rice.PNG', 55, 100, 'Mandya')">
+        <div class="product-image" style="background-image: url(PHOTOS/rice.PNG);"></div>
+        <h3>Rice</h3>
+        <p>₹55/kg</p>
+        <p>From: Mandya</p>
+      </div>
+
+      <div class="product-card" onclick="openProduct('Wheat', 'PHOTOS/wheat.png', 45,120, 'Tumkur')">
+        <div class="product-image" style="background-image: url(PHOTOS/wheat.png);"></div>
+        <h3>Wheat</h3>
+        <p>₹45/kg</p>
+        <p>From: Tumkur</p>
+      </div>
+      
+     
+    </div>
+
+
+
+    </div>
+    </div>
+
+
+
+
+
+
+
+    <script>
+function openProduct(name, img, price, stock, place) {
+    const url = `product.html?name=${encodeURIComponent(name)}&img=${encodeURIComponent(img)}&price=${price}&stock=${stock}&place=${encodeURIComponent(place)}`;
+    window.location.href = url;
+}
+
+// all products for search
+const productList = [
+    {name: "Tomato", img: "PHOTOS/tomato.png", price: 30, stock: 40, place: "Bangalore"},
+    {name: "Potato", img: "PHOTOS/potato.PNG", price: 25, stock: 60, place: "Mysuru"},
+    {name: "Onion", img: "PHOTOS/onion.PNG", price: 35, stock: 50, place: "Hubli"},
+    {name: "Mango", img: "PHOTOS/mango.PNG", price: 80, stock: 30, place: "Ramanagara"},
+    {name: "Apple", img: "PHOTOS/apple.PNG", price: 120, stock: 25, place: "Bangalore"},
+    {name: "Banana", img: "PHOTOS/banana.png", price: 40, stock: 70, place: "Chikkaballapur"},
+    {name: "Rice", img: "PHOTOS/rice.PNG", price: 55, stock: 100, place: "Mandya"},
+    {name: "Wheat", img: "PHOTOS/wheat.png", price: 45, stock: 120, place: "Tumkur"},
+    {name: "Jowar", img: "PHOTOS/jowar.png", price: 50, stock: 80, place: "Hassan"},
+    {name: "Toor Dal", img: "PHOTOS/toor.png", price: 90, stock: 40, place: "Kolar"}
+];
+</script>
+<script>
+// search function
+document.getElementById("searchBtn").onclick = () => {
+    let query = document.getElementById("searchInput").value.trim().toLowerCase();
+    if (!query) return;
+
+    let result = productList.find(p => p.name.toLowerCase() === query);
+
+    if (result) {
+        // go to product page
+        const url = `product.html?name=${encodeURIComponent(result.name)}&img=${encodeURIComponent(result.img)}&price=${result.price}&stock=${result.stock}&place=${encodeURIComponent(result.place)}`;
+        window.location.href = url;
+    } else {
+        alert("Product not found!");
+    }
+};
+
+
+</script>
+
+
+
+
+    
+</body>
+
+</html>

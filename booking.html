@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Booking Confirmed</title>
+ <link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Sansation:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body {
+  background-image: url(PHOTOS/mainbackground.jpeg);
+  font-family: 'Poiret One', cursive;
+
+    text-align: center;
+    padding: 40px;
+}
+.box {
+   background: rgba(255, 255, 255, 0.3); /* light transparent layer */
+    border-radius: 20px;
+    backdrop-filter: blur(10px);           /* THIS is the glass effect */
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    width: 78vw;
+    margin: auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    position: absolute;
+    top: 30vh;
+    left: 10vw;
+}
+h1 {
+    color: #faebc1;
+    font-weight: 900;
+    font-size: 3em;
+    margin-bottom: 10px;
+    font-family: 'Sansation', sans-serif;
+
+}
+p {
+    font-size: 2em;
+    margin: 10px 0;
+    font-weight: 500;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+    <h1>BOOKED </h1>
+    <p id="amountText"></p>
+    <p>Thank you for purchasing!</p>
+    <p>Your order will be delivered in <b>15 hours</b>.</p>
+</div>
+
+<script>
+let total = localStorage.getItem("grandTotal") || 0;
+document.getElementById("amountText").innerText =
+    "Your Cart Amount: " + total+ " rs";
+</script>
+
+</body>
+</html>

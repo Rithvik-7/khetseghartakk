@@ -1,0 +1,64 @@
+body{
+    background-size: cover;
+    background-image: url("PHOTOS/mainbackground.jpeg");
+    height: 70vh;
+
+}
+#box{
+ background: rgba(255, 255, 255, 0.3); /* light transparent layer */
+    border-radius: 20px;
+    backdrop-filter: blur(10px);           /* THIS is the glass effect */
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    width: 35vw;
+    height: 82vh;
+    padding: 25px;
+    position: absolute;
+    top: 7vh;
+    left: 5vw;
+
+    
+}
+
+h3{
+font-family:  'Poiret One', cursive;
+}
+h2{
+    font-family: 'Sansation', sans-serif;
+    font-size:2em;
+    color: #faebc1;
+    height: 5vh;
+    margin: 5px 0 0 0;
+
+}
+h3{
+    color: #162b11;
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    
+    border-radius: 10px;
+    border: 1px solid #8f8f8f;
+}
+button {
+    padding: 10px 30px;
+    border-radius: 10px;
+    width: 10vw;
+    
+    border: none;
+    font-size: 1.2em;
+    background: #ffd256;
+    color: #3F4A2C;
+    cursor: pointer;
+    margin-top: 30px;
+    font-weight: bold;
+      
+
+}
+button:active {
+
+    background: #ffbb00;
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Khet Se Ghar Tak</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Sansation:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+
+  <div id="man">
+     <div id="bg1"></div>
+     <div id="bg2"></div>
+     <div id="des">A platform that connects farmers and consumers,
+      <br> delivering fresh produce directly from the farm to your home.</div>
+ <div id="logtext">Khet Se Ghar Tak.</div>
+
+  <section class="login-section">
+    <h1>Login to Continue:</h1>
+    <div class="login-container">
+      
+    
+      <div class="login-card">
+        <h2>Farmer Login</h2>
+        <form>
+          <label for="farmer-email">Email</label>
+          <input type="email" id="farmer-email" placeholder="Enter your email" required>
+          
+          <label for="farmer-password">Password</label>
+          <input type="password" id="farmer-password" placeholder="Enter your password" required>
+          
+          <button type="submit" id="farpage">Login</button>
+        </form>
+      </div>
+
+      
+      <div class="login-card">
+        <h2>Consumer Login</h2>
+        <form>
+          <label for="consumer-email">Email</label>
+          <input type="email" id="consumer-email" placeholder="Enter your email" required>
+          
+          <label for="consumer-password">Password</label>
+          <input type="password" id="consumer-password" placeholder="Enter your password" required>
+          
+          <button type="submit" id="conpage">Login</button>
+        </form>
+      </div>
+    </div>
+
+  </section>
+  </div>
+
+ <script>
+
+  // Dummy login data (you can change it)
+  const farmerAccount = {
+      email: "farmer@gmail.com",
+      password: "123"
+  };
+
+  const consumerAccount = {
+      email: "user@gmail.com",
+      password: "123"
+  };
+
+  // Farmer Login
+  document.getElementById("farpage").addEventListener("click", function (e) {
+      e.preventDefault(); // stops form from refreshing page
+
+      let email = document.getElementById("farmer-email").value.trim();
+      let pass = document.getElementById("farmer-password").value.trim();
+
+      if (email === "" || pass === "") {
+          alert("Please enter both email and password.");
+          return;
+      }
+
+      if (email === farmerAccount.email && pass === farmerAccount.password) {
+          
+          localStorage.setItem("loggedUser", "farmer");
+          window.location.href = "farmer.html";
+          email=""
+          return
+      } 
+      else {
+          alert("Incorrect Email or Password!");
+      }
+  });
+
+
+  // Consumer Login
+  document.getElementById("conpage").addEventListener("click", function (e) {
+    e.preventDefault();
+
+    let email = document.getElementById("consumer-email").value.trim();
+    let pass = document.getElementById("consumer-password").value.trim();
+
+    if (email === "" || pass === "") {
+        alert("Please enter both email and password.");
+        
+    }
+
+    if (email === consumerAccount.email && pass === consumerAccount.password) {
+        
+        localStorage.setItem("loggedUser", "consumer");
+        window.location.href = "home.html";
+        
+        return
+    } 
+    else {
+        alert("Incorrect Email or Password!");
+    }
+});
+
+
+</script>
+
+</body>
+</html>

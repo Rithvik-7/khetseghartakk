@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="cart.css">
+      <link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Sansation:wght@400;700&display=swap" rel="stylesheet">
+
+    
+</head>
+<body>
+
+
+<nav class="navbar">
+  <div class="nav-left">
+    <span class="logo-text nav-logo">Khet Se Ghar Tak</span>
+    
+
+  </div>
+
+  <div class="nav-right">
+    <a href="home.html" class="nav-link">Home</a>
+    <a href="display.html" class="nav-link">Products</a>
+    
+    
+  </div>
+</nav>
+
+
+
+<div class="box">
+
+<div id="cartItems"></div>
+<div id="b2">
+<div id="totalBox" style="font-family: 'Sansation', sans-serif;
+"></div>
+<button id="bookNowBtn" 
+style="
+width: 90%; 
+margin: 20px auto; 
+display: block; 
+background: rgba(255, 255, 255, 0.323); 
+    border-radius: 20px;
+    backdrop-filter: blur(10px);         
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+padding: 15px; 
+border-radius: 10px; 
+border: none; 
+font-size: 20px; 
+font-family: 'Sansation', sans-serif;
+font-weight: bold;
+cursor: pointer;">
+BOOK NOW
+</button>
+</div>
+</div>
+
+<script>
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    function loadCart(){
+
+        document.getElementById("cartItems").innerHTML = "";
+        let grandTotal = 0;
+
+        cart.forEach((item, index) => {
+            grandTotal += Number(item.total);
+
+
+            document.getElementById("cartItems").innerHTML += `
+                <div class="cart-item">
+                    <img src="${item.img}" alt="">
+                    <div class="info">
+                        <h2 style="font-family: 'Sansation', sans-serif; font-size: 2em; color: #faebc1; font-weight: 600; ">${item.name}</h2>
+                        <p  style="  font-family: 'Poiret One', cursive; font-weight: 600;">Price per kg: ₹${item.price}</p>
+                        <p style="  font-family: 'Poiret One', cursive; font-weight: 600;">Selected: ${item.qty} kg</p>
+                        <p style="font-size: 1.2em; font-family: 'Poiret One', cursive; font-weight: 600;" >Total: ₹${item.total}</p>
+                    </div>
+                    <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+                </div>
+            `;
+        });
+
+        document.getElementById("totalBox").innerText = "Grand Total: ₹" + grandTotal;
+    }
+
+    function removeItem(i){
+        cart.splice(i, 1);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        loadCart();
+    }
+
+    loadCart();
+</script>
+
+<script>
+document.getElementById("bookNowBtn").onclick = () => {
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let total = 0;
+    cart.forEach(item => {
+        total += item.price * item.qty;
+    });
+
+    // store grand total for next page
+    localStorage.setItem("grandTotal", total);
+    if(total!=0){
+
+    window.location.href = "booking.html";
+    }
+    else{
+        alert("The cart is empty")
+    }
+};
+</script>
+
+
+
+</body>
+</html>

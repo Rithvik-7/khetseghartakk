@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="indpro.css"> 
+  <link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Sansation:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Reuse your existing header navbar -->
+<nav class="navbar">
+  <div class="nav-left">
+    <span class="logo-text nav-logo">Khet Se Ghar Tak</span>
+    
+
+  </div>
+
+  <div class="nav-right">
+    <a href="home.html" class="nav-link">Home</a>
+    <a href="display.html" class="nav-link">Products</a>
+    <a href="cart.html" class="nav-link">Cart</a>
+    
+  </div>
+</nav>
+
+
+
+
+
+    <div class="product-container">
+        <div id="productImage" class="product-image-big"></div>
+
+        <div class="product-info">
+            <h1 id="productName"></h1>
+            <p id="productPrice"></p>
+           
+            <p id="productLocation"></p>
+            <div class="qty-box">
+    <button class="qty-btn" id="minusBtn">−</button>
+    <span id="qtyValue">0  kg</span>
+    <button class="qty-btn" id="plusBtn">+</button>
+</div>
+
+
+            <button id="addCartBtn">Add to Cart</button>
+            <div id="suc"> item added</div>
+        </div>
+    </div>
+
+    <script>
+    const params = new URLSearchParams(window.location.search);
+    
+    const name = params.get("name");
+    const img = params.get("img");
+    const price = params.get("price");
+    let stock = params.get("stock");
+    const location1 = params.get("place");
+
+    document.getElementById("productName").innerText = name;
+    document.getElementById("productImage").style.backgroundImage = `url(${img})`;
+    document.getElementById("productPrice").innerText = `Price: ₹${price}/kg`;
+    
+    document.getElementById("productLocation").innerText = `From: ${location1}`;
+
+    // -------------------------------
+    // QUANTITY SELECTOR
+    // -------------------------------
+
+    let qty = 0;
+
+    document.getElementById("plusBtn").onclick = () => {
+    
+
+        qty++;
+        
+        document.getElementById("qtyValue").innerText = qty+"  kg";
+        
+    };
+
+    document.getElementById("minusBtn").onclick = () => {
+        if (qty > 1) {
+            qty--;
+            document.getElementById("qtyValue").innerText = qty+"  kg";
+        }
+    };
+
+    // -------------------------------
+    // ADD TO CART (FINAL VERSION)
+    // -------------------------------
+
+    const addBtn = document.getElementById("addCartBtn");
+
+addBtn.onclick = () => {
+
+  if (qty <= 0) {
+    alert("Select quantity first");
+    return;
+  }
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  let total = qty * price;
+
+  cart.push({
+    name: name,
+    img: img,
+    price: price,
+    stock: stock,
+    qty: qty,
+    total: total
+  });
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  // 🔥 BUTTON TEXT CHANGE
+  addBtn.innerText = "Added";
+  addBtn.disabled = true;
+
+  setTimeout(() => {
+    addBtn.innerText = "Add to Cart";
+    addBtn.disabled = false;
+  }, 1000);
+
+  stock -= qty;
+  qty = 0;
+  document.getElementById("qtyValue").innerText = "0 kg";
+};
+
+
+
+</script>
+
+
+</body>
+</html>
